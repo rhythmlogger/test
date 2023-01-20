@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+
+        td {
+            border: 1px solid black;
+            width: 100px;
+            text-align: center;
+            height: 100px;
+        }
+
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js">
+
+    </script>
+</head>
+
+<body>
+    <script>
+        const synth = new Tone.PolySynth().toDestination();
+        let sequence = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+        let table = document.createElement('table');
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 10; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            let tds = tr.getElementsByTagName('td')
+            let td = document.createElement('td');
+            tds[parseInt(Math.random() * tds.length)].innerHTML = sequence[parseInt(Math.random() * sequence.length)] + (parseInt(Math.random() * 4) + 2);
+            table.appendChild(tr);
+        }
+        document.body.appendChild(table);
+        let lidx = 9;
+        document.body.addEventListener('keydown', function (e) {
+            let tds = document.getElementsByTagName('td');
+            for (let j = 0; j < 10; j++) {
+                tds[lidx * 10 + j].style = 'background-color:black;color:white;'
+                let note = tds[lidx * 10 + j].innerHTML;
+                if (note) {
+                    synth.triggerAttackRelease(note, '32n');
+                    //break;
+                }
+            }
+            lidx--;
+        }, 1000)
+    </script>
+</body>
+
+</html>
