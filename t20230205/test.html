@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .north {
+            width: 100%;
+            height: 200px;
+            background-color: skyblue;
+            position: absolute;
+            top: 0;
+        }
+
+        .south {
+            width: 100%;
+            height: 200px;
+            background-color: skyblue;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .west {
+            top: 200px;
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: calc(100%);
+            background-color: cyan;
+        }
+
+        .east {
+            top: 200px;
+            background-color: cyan;
+            width: 200px;
+            right: 0;
+            position: absolute;
+            height: calc(100%);
+        }
+        .item{
+            width:200px;
+            height:200px;
+            border:1px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="north">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="west">
+
+    </div>
+    <div class="east">
+
+    </div>
+    <div class="south">
+
+    </div>
+</body>
+
+</html>

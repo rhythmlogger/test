@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        li {
+            display: inline-block;
+            margin-left: 0;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            line-height: 50px;
+            text-align: center;
+
+        }
+
+        .line {
+            height: calc(80vh);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .note {
+            position: absolute;
+            bottom: 0%;
+            animation: down linear 4s none;
+            background-color: black;
+            width: 50px;
+            height: 20px;
+            visibility: hidden;
+        }
+
+        @keyframes down {
+            0% {
+                visibility: visible;
+                bottom: 0%;
+            }
+
+            100% {
+                bottom: 100%;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="line" id="line-1"></li>
+        <li class="line" id="line-2"></li>
+        <li class="line" id="line-3"></li>
+        <li class="line" id="line-4"></li>
+        <li class="line" id="line-5"></li>
+        <li class="line" id="line-6"></li>
+        <li class="line" id="line-7"></li>
+        <li class="line" id="line-8"></li>
+        <li class="line" id="line-9"></li>
+        <li class="line" id="line-0"></li>
+        <li class="line" id="line-q"></li>
+        <li class="line" id="line-w"></li>
+        <li class="line" id="line-e"></li>
+        <li class="line" id="line-r"></li>
+        <li class="line" id="line-t"></li>
+        <li class="line" id="line-q"></li>
+        <li class="line" id="line-w"></li>
+        <li class="line" id="line-e"></li>
+        <li class="line" id="line-r"></li>
+        <li class="line" id="line-t"></li>
+        <li class="line" id="line-y"></li>
+        <li class="line" id="line-u"></li>
+        <li class="line" id="line-i"></li>
+        <li class="line" id="line-o"></li>
+        <li class="line" id="line-p"></li>
+        <li class="line" id="line-a"></li>
+        <li class="line" id="line-s"></li>
+        <li class="line" id="line-d"></li>
+        <li class="line" id="line-f"></li>
+        <li class="line" id="line-g"></li>
+        <li class="line" id="line-h"></li>
+        <li class="line" id="line-j"></li>
+        <li class="line" id="line-k"></li>
+        <li class="line" id="line-l"></li>
+        <li class="line" id="line-z"></li>
+        <li class="line" id="line-x"></li>
+        <li class="line" id="line-c"></li>
+        <li class="line" id="line-v"></li>
+        <li class="line" id="line-b"></li>
+        <li class="line" id="line-n"></li>
+        <li class="line" id="line-m"></li>
+    </ul>
+    <ul>
+        <li id="key-1">1</li>
+        <li id="key-2">2</li>
+        <li id="key-3">3</li>
+        <li id="key-4">4</li>
+        <li id="key-5">5</li>
+        <li id="key-6">6</li>
+        <li id="key-7">7</li>
+        <li id="key-8">8</li>
+        <li id="key-9">9</li>
+        <li id="key-0">0</li>
+        <li id="key-q">q</li>
+        <li id="key-w">w</li>
+        <li id="key-e">e</li>
+        <li id="key-r">r</li>
+        <li id="key-t">t</li>
+        <li id="key-q">q</li>
+        <li id="key-w">w</li>
+        <li id="key-e">e</li>
+        <li id="key-r">r</li>
+        <li id="key-t">t</li>
+        <li id="key-y">y</li>
+        <li id="key-u">u</li>
+        <li id="key-i">i</li>
+        <li id="key-o">o</li>
+        <li id="key-p">p</li>
+        <li id="key-a">a</li>
+        <li id="key-s">s</li>
+        <li id="key-d">d</li>
+        <li id="key-f">f</li>
+        <li id="key-g">g</li>
+        <li id="key-h">h</li>
+        <li id="key-j">j</li>
+        <li id="key-k">k</li>
+        <li id="key-l">l</li>
+        <li id="key-z">z</li>
+        <li id="key-x">x</li>
+        <li id="key-c">c</li>
+        <li id="key-v">v</li>
+        <li id="key-b">b</li>
+        <li id="key-n">n</li>
+        <li id="key-m">m</li>
+    </ul>
+    <script>
+        function createNote(key) {
+            let line = document.getElementById('line-' + key);
+            if (line != undefined) {
+                let note = document.createElement('div');
+                note.className = 'note';
+                line.appendChild(note);
+            }
+        }
+        document.body.addEventListener('keydown', function (e) {
+            console.log(e.key);
+            createNote(e.key)
+            let key = document.getElementById('key-'+e.key);
+            if ( key != undefined) {
+                key.style = 'background-color:black;color:white;'
+            }
+        })
+        document.body.addEventListener('keyup', function (e) {
+            let key = document.getElementById('key-'+e.key);
+            if ( key != undefined) {
+                key.style = 'background-color:white;color:black;'
+            }
+        })
+    </script>
+</body>
+
+</html>

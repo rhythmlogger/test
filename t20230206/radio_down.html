@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        input[type='radio'] {
+            box-sizing: border-box;
+            appearance: none;
+            background: white;
+            outline: 2px solid #333;
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            display: block;
+        }
+
+        input[type='radio']:checked {
+            background: #333;
+        }
+
+        input[type='radio'].good {
+            outline: 2px solid cyan;
+            /* background-color: cyan; */
+        }
+
+        input[type='radio'].cool {
+            outline: 2px solid chartreuse;
+            /* background-color: chartreuse; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="radio" name="test" checked value="0" />
+    <input type="radio" name="test" value="1" />
+    <input type="radio" name="test" value="2" />
+    <input type="radio" name="test" value="3" />
+    <input type="radio" name="test" value="4" />
+    <input type="radio" name="test" value="5" />
+    <input type="radio" name="test" value="6" />
+    <input type="radio" name="test" value="7" />
+    <input type="radio" name="test" value="8" />
+    <input type="radio" name="test" value="9" />
+    <input type="radio" class='good' name="test" value="10" />
+    <input type="radio" class='cool' name="test" value="11" />
+    <input type="radio" class='good' name="test" value="12" />
+    <input type="radio" name="test" value="13" />
+    <input type="radio" name="test" value="14" />
+    <input type="radio" name="test" value="15" />
+</body>
+<script>
+    let idx = 0;
+    let radioElements = document.querySelectorAll('input[type=radio]');
+    let th = setInterval(function () {
+        radioElements[idx].checked = true;
+        console.log(idx);
+        idx++;
+        // if (idx == radioElements.length) {
+        //     clearInterval(th);
+        //     console.log(idx);
+        // }
+        idx = idx % 16;
+    }, 250);
+    document.body.addEventListener('keydown', function (e) {
+        let radioElements = document.querySelectorAll('input[type=radio]');
+        for (let i = 0; i < radioElements.length; i++) {
+            if (radioElements[idx].checked) {
+                console.log(radioElements[idx].value);
+                break;
+            }
+        }
+    })
+</script>
+
+</html>

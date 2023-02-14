@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        input[type='radio'] {
+            box-sizing: border-box;
+            appearance: none;
+            background: white;
+            outline: 2px solid #333;
+            border: 3px solid white;
+            width: 16px;
+            height: 16px;
+            margin: 0;
+        }
+
+        input[type='radio']:checked {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="radio" name="test" checked />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+    <input type="radio" name="test" />
+</body>
+<script>
+    let idx = 0;
+    let radioElements = document.querySelectorAll('input[type=radio]');
+    console.log(radioElements);
+    let th = setInterval(function () {
+        radioElements[idx].checked = true;
+        console.log(idx);
+        idx++;
+        if (idx == radioElements.length) {
+            clearInterval(th);
+            console.log(idx);
+        }
+    }, 1000)
+</script>
+
+</html>
