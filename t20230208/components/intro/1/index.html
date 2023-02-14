@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+        }
+
+        @keyframes image-down {
+            0% {
+                background-position: top;
+            }
+
+            100% {
+                background-position: bottom;
+            }
+
+        }
+
+        @keyframes down {
+            0% {
+                top: 0;
+                filter: invert(1);
+            }
+
+            50% {
+
+                filter: invert(0);
+            }
+
+            100% {
+                top: 100%;
+                filter: invert(1);
+            }
+        }
+
+        @keyframes up {
+            0% {
+                bottom: 0;
+                filter: invert(1);
+            }
+
+            50% {
+
+                filter: invert(0);
+            }
+
+            100% {
+                bottom: 100%;
+                filter: invert(1);
+            }
+        }
+
+        .up-component {
+            animation: up infinite ease-in-out 3s;
+            position: absolute;
+            left: 25%;
+            bottom: 0;
+            font-size: 8rem;
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        .down-component {
+            animation: down infinite ease-in-out 2s;
+            position: absolute;
+            right: 25%;
+            top: 0;
+            font-size: 8rem;
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            filter: grayscale(1);
+        }
+
+        .intro .title-1:hover {
+            filter: invert(1);
+        }
+
+        .intro {
+            filter: invert(1);
+            position: absolute;
+            width: 100%;
+            height: 700px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            line-height: 700px;
+            background-image: url('video.gif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .intro .title-1 {
+            width: 1200px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            text-align: center;
+            line-height: 400px;
+            font-size: 8rem;
+            transform: translate(-50%, -40%);
+            font-family: 'Consolas';
+            color: white;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        .intro .guide {
+            width: 1200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 75%;
+            text-align: center;
+            color: white;
+            line-height: 200px;
+            font-size: 2rem;
+            transform: translate(-50%, -75%);
+            animation: blink 1s infinite ease-in-out;
+        }
+
+        @keyframes t1Effect {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(0.9);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .t1-etc {
+            position: absolute;
+            width: 800px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.1);
+            z-index: 3;
+            text-align: center;
+            line-height: 200px;
+            font-size: 4rem;
+            animation: blink 3s infinite ease-in-out;
+        }
+
+
+        .hr {
+            width: 45%;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .blank-top {
+            padding: 1rem;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background-color: black;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.85);
+            z-index: 2;
+        }
+
+        .blank-bottom {
+            padding: 1rem;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15%;
+            position: absolute;
+            background-color: black;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 20vh;
+            text-align: right;
+            z-index: 2;
+
+        }
+
+        #t2-box {
+            background-color: black;
+            color: white;
+            opacity: 0.95;
+        }
+
+        @keyframes bounce {
+
+            from,
+            to {
+                bottom: 0px;
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                bottom: 200px;
+                animation-timing-function: ease-in;
+            }
+
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            animation-name: bounce;
+            animation-iteration-count: infinite;
+            z-index:3;
+        }
+
+        #b1 {
+            left: 10px;
+            background-color: white;
+            animation-duration: 5s;
+        }
+
+        #b2 {
+            left: 50px;
+            background-color: darkgray;
+            animation-duration: 10s;
+        }
+
+        #b3 {
+            left: 90px;
+            background-color: lightblue;
+            animation-duration: 3s;
+        }
+
+        #b4 {
+            left: 130px;
+            background-color: silver;
+            animation-duration: 8s;
+        }
+
+        #b5 {
+            left: 170px;
+            background-color: darkgray;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="b1" class="ball"></div>
+    <div id="b2" class="ball"></div>
+    <div id="b3" class="ball"></div>
+    <div id="b4" class="ball"></div>
+    <div id="b5" class="ball"></div>
+
+    <div class="t1-etc">
+        <div id="t2-box">
+            <span class="t2">T</span>
+            <span class="t2">i</span>
+            <span class="t2">t</span>
+            <span class="t2">l</span>
+            <span class="t2">e</span>
+        </div>
+    </div>
+    <div class="down-component">
+        ▼<br>
+        ▼<br>
+        ▼<br>
+    </div>
+    <div class="up-component">
+        ▲<br>
+        ▲<br>
+        ▲<br>
+    </div>
+    <div class="blank-top">
+    </div>
+    <div class="blank-bottom">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores placeat, repudiandae fuga assumenda
+        similique officiis odit incidunt dolore repellat saepe distinctio nihil aliquid dicta suscipit tenetur neque
+        accusamus error optio.
+    </div>
+    <div class="intro">
+        <div class="guide">
+            test description
+        </div>
+    </div>
+    <script>
+        function getPrevs(target) {
+            let n = target;
+            let list = [];
+            while (n = n.previousElementSibling) {
+                list.push(n);
+            }
+            return list;
+        }
+
+        function getNext(target) {
+            let n = target;
+            let list = [];
+            while (n = n.nextElementSibling) {
+                list.push(n);
+            }
+            return list;
+        }
+        let idx = 0;
+        let t1Elements = document.getElementsByClassName('t1');
+        console.log(t1Elements);
+        function init(list) {
+            for (let i = 0; i < list.length; i++) {
+                list[i].style = 'color:black;'
+            }
+        }
+        setInterval(function () {
+            t1Elements[idx].style = 'color:lightgray;'
+            init(getPrevs(t1Elements[idx]));
+            init(getNext(t1Elements[idx]));
+            idx++;
+            idx = idx % t1Elements.length;
+        }, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+* {
+    font-size: x-small;
+}
+
+.head {
+    background-color: #473E37;
+    padding: 1em;
+    color: white;
+    filter: grayscale(1);
+}
+
+.pg-main {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.entries p.pcview_only {
+    display: none;
+}
+
+.sidebar ul li {
+    display: inline;
+    list-style: none;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #ccc;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+
+.foot {
+    background-color: #333;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #999;
+    padding: 10px;
+    color: #FFF;
+    margin-top: 10px;
+    text-align: center;
+}
