@@ -32,22 +32,37 @@
             border: 1px solid black;
             width: 50px;
             height: 20px;
+            min-height: 20px;
+            min-width: 50px;
+            visibility: hidden;
+            ;
         }
     </style>
 </head>
 
 <body>
+    <input type="range" id="range" value="0" step="1" max="0" min="-100" />
     <div id="line">
 
     </div>
     <script>
-        let list = [1000, 2000, 2500, 3000, 3500, 4000, 4500, 6000, 7000, 8000]
+        let speed = 0;
+        let list = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
         let down = [
-            { bottom: '100%' },
-            { bottom: '0%' }
+            { bottom: `100%`, visibility: 'visible' },
+            { bottom: `${speed}%`, visibility: 'hidden' } //0~ -(x)% speed 설정가능
         ]
+        let range = document.getElementById('range');
+        range.addEventListener('mouseup', function (e) {
+            console.log(e.target.value);
+            down = [
+                { bottom: `100%`, visibility: 'visible' },
+                { bottom: `${e.target.value}%`, visibility: 'hidden' } //0~ -(x)% speed 설정가능
+            ]
+            start();
+        })
         let timing = {
-            duration: 2000,
+            duration: 4000,
             iteration: 1
         }
         function newNote() {
@@ -64,7 +79,6 @@
                 }, list[i]);
             }
         }
-        start();
     </script>
 </body>
 
